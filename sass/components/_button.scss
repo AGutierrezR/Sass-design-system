@@ -1,3 +1,4 @@
+@use '../functions' as *;
 @use '../variables' as *;
 
 @mixin btn($bg-color: #e2e2e2) {
@@ -29,6 +30,16 @@
 
     &:hover {
       background-color: $val;
+    }
+  }
+
+  .btn-complement-#{$key} {
+    @include btn($val);
+    color: light-comp($val);
+
+    &:hover {
+      color: $val;
+      background-color: light-comp($val);
     }
   }
 }
